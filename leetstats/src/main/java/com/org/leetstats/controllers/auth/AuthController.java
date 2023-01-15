@@ -37,7 +37,6 @@ public class AuthController {
         log.info("started the login process");
         Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login.getEmail(), login.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(auth);
-
         return ResponseEntity.ok(null);
     }
 

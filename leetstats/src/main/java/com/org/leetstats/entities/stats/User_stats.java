@@ -19,7 +19,7 @@ public class User_stats {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private int memory;
+    private String memory;
     @Column(name = "lang")
     private String language;
     @Column

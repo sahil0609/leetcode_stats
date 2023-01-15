@@ -13,10 +13,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Tag {
+
+    public Tag(String name) {
+        this.name = name;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
     private String name;
+
 }
