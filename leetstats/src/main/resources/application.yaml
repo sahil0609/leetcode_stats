@@ -12,4 +12,4 @@ spring:
      # ddl-auto: validate
 logging:
   level:
-    root: debug
+    root: info

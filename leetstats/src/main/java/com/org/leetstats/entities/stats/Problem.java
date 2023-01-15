@@ -31,7 +31,7 @@ public class Problem {
     @Column
     private boolean is_premium;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(name = "problem_tags",
             schema="stats",
             joinColumns = {@JoinColumn(name="problem_id")},
