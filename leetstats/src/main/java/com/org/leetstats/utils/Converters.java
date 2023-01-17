@@ -26,7 +26,7 @@ public class Converters {
         return p;
     }
 
-    public static Pair<User_stats, String> ConvertStatsToUserstats(Stats stat){
+    public static Pair<User_stats, Stats> ConvertStatsToUserstats(Stats stat){
         User_stats user_stats = new User_stats();
         user_stats.setStatus(stat.getStatus());
         user_stats.setLanguage(stat.getLanguage());
@@ -46,7 +46,7 @@ public class Converters {
             }
         }
 
-        return Pair.of(user_stats, stat.getQuestionTitle());
+        return Pair.of(user_stats, stat);
 
     }
 }

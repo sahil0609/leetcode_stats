@@ -13,5 +13,6 @@ public class Stats {
     private Long timestamp;
     private String runtime;
     private String questionTitle;
+    private boolean isNotesPresent;
 
 }
