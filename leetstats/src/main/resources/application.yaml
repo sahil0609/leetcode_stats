@@ -13,3 +13,6 @@ spring:
 logging:
   level:
     root: info
+app:
+  codeDirectory: ${CODE_DIRECTORY:TO BE filled}
+  notesDirectory: ${NOTES_DIRECTORY:TO BE FILLED}
