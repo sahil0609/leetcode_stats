@@ -25,7 +25,6 @@ import java.util.List;
 @Slf4j
 public class InjestController {
 
-
     private final ProblemService problemService;
 
     private final UserStatsService userStatsService;

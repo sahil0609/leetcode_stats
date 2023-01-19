@@ -36,7 +36,7 @@ public class User_stats {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(mappedBy = "stats")
+    @OneToOne(mappedBy = "stats", cascade = CascadeType.ALL)
     private Codes code;
 
 

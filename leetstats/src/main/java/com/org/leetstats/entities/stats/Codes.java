@@ -20,7 +20,7 @@ public class Codes {
     @Column(name = "code_path")
     private String code_path;
 
-    @OneToOne
-    @JoinColumn(name = "stats_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_stats_id")
     private User_stats stats;
 }

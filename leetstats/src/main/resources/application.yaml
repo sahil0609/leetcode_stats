@@ -14,5 +14,5 @@ logging:
   level:
     root: info
 app:
-  codeDirectory: ${CODE_DIRECTORY:TO BE filled}
-  notesDirectory: ${NOTES_DIRECTORY:TO BE FILLED}
+  codeDirectory: ${CODE_DIRECTORY:../../../dump/codes}
+  notesDirectory: ${NOTES_DIRECTORY:../../../dump/notes}

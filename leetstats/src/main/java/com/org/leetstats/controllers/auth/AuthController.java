@@ -5,6 +5,8 @@ import com.org.leetstats.enums.RolesEnum;
 import com.org.leetstats.models.auth.UserLogin;
 import com.org.leetstats.repos.auth.RoleRepo;
 import com.org.leetstats.repos.auth.UserRepo;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -33,10 +39,12 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<?> signin(@RequestBody UserLogin login){
+    public ResponseEntity<?> signin(@RequestBody UserLogin login, HttpServletRequest req){
         log.info("started the login process");
         Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login.getEmail(), login.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(auth);
+        HttpSession session = req.getSession();
+        session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
         return ResponseEntity.ok(null);
     }
 
