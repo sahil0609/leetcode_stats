@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 public enum InjestExceptionEnum {
 
     INTERNAL_SERVER_ERROR("some error occured", HttpStatus.INTERNAL_SERVER_ERROR),
-    BAD_REQUEST("json is invalid", HttpStatus.BAD_REQUEST);
-
+    BAD_REQUEST("json is invalid", HttpStatus.BAD_REQUEST),
+    NOT_AUTHENTICATED("authentication error", HttpStatus.UNAUTHORIZED);
     private final  String message;
     private final HttpStatus status;
 
