@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface ProblemRepo extends CrudRepository<Problem, Integer> {
+    List<Problem> findByLeetcodenameInIgnoreCase(Collection<String> leetcode_name);
     long deleteByName(String name);
     Optional<Problem> findByNameIgnoreCase(String name);
     List<Problem> findByNameInIgnoreCase(Collection<String> names);

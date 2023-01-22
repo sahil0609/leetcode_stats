@@ -31,6 +31,9 @@ public class Problem {
     @Column
     private boolean is_premium;
 
+    @Column(name = "leetcode_name")
+    private String leetcodename;
+
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(name = "problem_tags",
             schema="stats",

@@ -25,7 +25,7 @@ public class ProblemService {
 
 
     public List<String> checkProblemExist(List<String> problems){
-        List<String> result = problemRepo.findByNameInIgnoreCase(problems).stream().map(Problem::getName).toList();
+        List<String> result = problemRepo.findByLeetcodenameInIgnoreCase(problems).stream().map(Problem::getLeetcodename).toList();
 
         return problems.stream()
                 .filter((val) -> !result.contains(val)).toList();
@@ -55,6 +55,7 @@ public class ProblemService {
         p.setName(question.getTitle());
         p.setLevel(Level.valueOf(question.getDifficulty().toUpperCase()));
         p.setLeetcode_id(Integer.parseInt(question.getQuestionId()));
+        p.setLeetcodename(question.getLeetcode_name());
         List<Tag> tags = question.getTags().stream().map((tag) -> tagRepo.findByName(tag).orElse(new Tag(tag))).toList();
         p.setTags(tags);
         return p;

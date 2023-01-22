@@ -11,4 +11,6 @@ public class Question {
     private String difficulty;
     private boolean isPaidOnly;
     private List<String> tags;
+
+    private String leetcode_name;
 }
